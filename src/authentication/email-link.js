@@ -8,7 +8,7 @@ import { auth } from './authentication'
 
 function emailLinkActionCodeSettings() {
     return {
-        url: 'https://***REMOVED***.web.app/dashboard',
+        url: 'https://dylanauthentication.page.link/dashboard',
         handleCodeInApp: true,
         dynamicLinkDomain: 'dylanauthentication.page.link'
     };

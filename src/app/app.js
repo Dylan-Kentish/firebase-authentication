@@ -2,13 +2,13 @@ import { initializeApp } from 'firebase/app'
 
 // Use your config values here.
 const app = initializeApp({
-    apiKey: "***REMOVED***",
-    authDomain: "***REMOVED***",
-    projectId: "***REMOVED***",
-    storageBucket: "***REMOVED***.appspot.com",
-    messagingSenderId: "***REMOVED***",
-    appId: "1:***REMOVED***:web:6d55f4105b2fcc501004ec",
-    measurementId: "***REMOVED***"
+    apiKey: process.env.REACT_APP_FIREBASE_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 });
 
 export {
