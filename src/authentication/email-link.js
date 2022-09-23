@@ -49,8 +49,9 @@ const tryLogInWithEmailLink = async (emailLink) => {
 }
 
 const uniqueUsername = (email) => {
-    const username = email.substring(0, email.lastIndexOf("@"));
+    let username = email.substring(0, email.lastIndexOf("@"));
     username += (Math.random() * 10).toString()
+    return username
 }
 
 
