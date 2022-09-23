@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 import { db } from "../database/database";
 import { auth, logout } from "../authentication/authentication";
+import { tryLogInWithEmailLink } from "../authentication/email-link"
 import { query, collection, getDocs, where } from "firebase/firestore";
 function Dashboard() {
     const [user, loading] = useAuthState(auth);
@@ -22,11 +23,25 @@ function Dashboard() {
             }
         };
 
+        const logIn = async () => {
+            await tryLogInWithEmailLink(window.location.href)
+        }
+
+        console.error(loading);
         if (loading) return;
-        if (!user) return navigate("/");
-        fetchUserName();
-    }, [user, loading, navigate]);
-    
+
+        console.error("logging in");
+        logIn().then(() => {
+            console.error(user);
+            if (!user) {
+                //navigate('/')
+            } else {
+                fetchUserName();
+            }
+        })
+
+    }, [user, loading, navigate, setName]);
+
     return (
         <div className="dashboard">
             <div className="dashboard__container">
