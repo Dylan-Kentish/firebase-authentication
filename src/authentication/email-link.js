@@ -10,7 +10,7 @@ import { addNewUser } from '../database/database'
 
 function emailLinkActionCodeSettings() {
     return {
-        url: 'https://***REMOVED***.web.app/',
+        url: 'https://authentication-ab4cc.web.app/',
         handleCodeInApp: true,
         dynamicLinkDomain: 'dylanauthentication.page.link'
     };
