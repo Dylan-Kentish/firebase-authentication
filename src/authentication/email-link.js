@@ -4,7 +4,7 @@ import {
     sendSignInLinkToEmail,
 } from "firebase/auth";
 
-import { auth } from './authentication'
+import { auth, uniqueUsername } from './authentication'
 
 import { addNewUser } from '../database/database'
 
@@ -38,8 +38,9 @@ const tryLogInWithEmailLink = async (emailLink) => {
 
             const res = await signInWithEmailLink(auth, email, emailLink);
             const user = res.user;
+            
             const username = uniqueUsername(email)
-            await addNewUser(user.uid, username, email, 'email-link');
+            await addNewUser(user.uid, username, email);
             window.localStorage.removeItem('emailForSignIn');
         }
     } catch (err) {
@@ -48,11 +49,6 @@ const tryLogInWithEmailLink = async (emailLink) => {
     }
 }
 
-const uniqueUsername = (email) => {
-    let username = email.substring(0, email.lastIndexOf("@"));
-    username += (Math.random() * 10).toString()
-    return username
-}
 
 
 export {

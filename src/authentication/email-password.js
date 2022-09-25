@@ -4,7 +4,7 @@ import {
     sendPasswordResetEmail,
 } from "firebase/auth";
 
-import { auth } from './authentication'
+import { auth, uniqueUsername } from './authentication'
 
 import { addNewUser } from '../database/database'
 
@@ -21,7 +21,8 @@ const registerWithEmailAndPassword = async (name, email, password) => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password);
         const user = res.user;
-        await addNewUser(user.uid, name, email, 'local');
+        const username = uniqueUsername(email)
+        await addNewUser(user.uid, username, email);
     } catch (err) {
         console.error(err);
         alert(err.message);
