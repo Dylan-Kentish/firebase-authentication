@@ -8,16 +8,16 @@ import { Root } from "./components/Root";
 function App() {
   return (
     <div className="App">
-      <Root>
-        <Router>
+      <Router>
+        <Root>
           <Routes>
             <Route exact path="/" element={<Login />} />
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/reset" element={<Reset />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
           </Routes>
-        </Router>
-      </Root>
+        </Root>
+      </Router>
     </div>
   );
 }

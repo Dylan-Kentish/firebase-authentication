@@ -12,7 +12,6 @@ const logout = () => {
 };
 
 export {
-    app,
     auth,
     logout,
 };
