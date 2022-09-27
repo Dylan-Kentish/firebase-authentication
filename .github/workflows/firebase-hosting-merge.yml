@@ -22,3 +22,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_AUTHENTICATION_AB4CC }}'
           channelId: live
           projectId: authentication-ab4cc
+          target: authentication-ab4cc
