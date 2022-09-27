@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "authentication-ab4cc",
     "public": "build",
     "ignore": [
       "firebase.json",
